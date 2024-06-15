@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Results</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+    {% endblock %}  
+
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">Data Analysis Results</h2>
+
+        <div class="result-section">
+            <h3>First Few Rows</h3>
+            <div>{{ first_rows|safe }}</div>
+        </div>
+
+        <div class="result-section">
+            <h3>Summary Statistics</h3>
+            <div>{{ summary_stats|safe }}</div>
+        </div>
+
+        <div class="result-section">
+            <h3>Missing Values</h3>
+            <div>{{ missing_values|safe }}</div>
+        </div>
+
+        <div class="result-section plot-image">
+            <h3>Histograms</h3>
+            <img src="{{ plot_url }}" alt="Plot">
+        </div>
+    </div>
+</body>
+</html>

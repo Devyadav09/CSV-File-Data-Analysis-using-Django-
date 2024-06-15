@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">Upload CSV File For Data Analysis</h2>
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-upload">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
